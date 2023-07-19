@@ -144,7 +144,7 @@ void _free_list_(list_t **head_ptr)
 {
 	list_t *node, *next_node, *head;
 
-	if (!head_ptr || !*head_ptr)
+	while (!head_ptr || !*head_ptr)
 		return;
 	head = *head_ptr;
 	node = head;

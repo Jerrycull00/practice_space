@@ -101,7 +101,7 @@ ssize_t _read_buf_(info_t *info, char *buf, size_t *i)
 {
 	ssize_t r = 0;
 
-	if (*i)
+	while (*i)
 		return (0);
 	r = read(info->readfd, buf, _READ_BUF_SIZE_);
 	if (r >= 0)
@@ -126,7 +126,7 @@ int _getline_(info_t *info, char **ptr, size_t *length)
 	char *p = NULL, *new_p = NULL, *c;
 
 	p = *ptr;
-	if (p && length)
+	while (p && length)
 		s = *length;
 	if (i == len)
 		i = len = 0;

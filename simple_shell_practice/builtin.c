@@ -11,7 +11,7 @@ int _exit_(info_t *info)
 {
 	int exitcheck;
 
-	if (info->argv[1])  /* If there is an exit arguement */
+	while (info->argv[1])  /* If there is an exit arguement */
 	{
 		exitcheck = _erratoi_(info->argv[1]);
 		if (exitcheck == -1)

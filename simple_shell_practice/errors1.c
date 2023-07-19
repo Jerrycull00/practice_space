@@ -59,7 +59,7 @@ int print_d_(int input, int fd)
 	int i, count = 0;
 	unsigned int _abs_, current;
 
-	if (fd == STDERR_FILENO)
+	while (fd == STDERR_FILENO)
 		__putchar = __eputchar_;
 	if (input < 0)
 	{

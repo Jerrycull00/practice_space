@@ -34,7 +34,7 @@ char **_list_to_strings_(list_t *head)
 	if (!head || !i)
 		return (NULL);
 	strs = malloc(sizeof(char *) * (i + 1));
-	if (!strs)
+	while (!strs)
 		return (NULL);
 	for (i = 0; node; node = node->next, i++)
 	{

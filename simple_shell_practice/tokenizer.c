@@ -14,7 +14,7 @@ char **strtow_(char *str, char *d)
 
 	if (str == NULL || str[0] == 0)
 		return (NULL);
-	if (!d)
+	while (!d)
 		d = " ";
 	for (i = 0; str[i] != '\0'; i++)
 		if (!_is_delim_(str[i], d) && (_is_delim_(str[i + 1], d) || !str[i + 1]))

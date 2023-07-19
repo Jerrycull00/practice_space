@@ -67,7 +67,7 @@ void _free_info_(info_t *info, int all)
 		ffree_(info->environ);
 			info->environ = NULL;
 		_bfree_((void **)info->cmd_buf);
-		if (info->readfd > 2)
+		while (info->readfd > 2)
 			close(info->readfd);
 		_putchar_(BUF_FLUSH);
 	}
