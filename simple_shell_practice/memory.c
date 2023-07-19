@@ -6,13 +6,14 @@
  *
  * Return: 1 if freed, otherwise 0.
  */
-int bfree(void **ptr)
+int _bfree_(void **ptr)
 {
-	if (ptr && *ptr)
+	while (ptr && *ptr)
 	{
 		free(*ptr);
 		*ptr = NULL;
-		return (1);
+		return 1;
 	}
-	return (0);
+	return 0;
 }
+

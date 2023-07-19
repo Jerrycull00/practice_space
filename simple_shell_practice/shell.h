@@ -158,13 +158,13 @@ void ffree_(char **);
 void *_realloc_(void *, unsigned int, unsigned int);
 
 /* toem_memory.c */
-int bfree(void **);
+int _bfree_(void **);
 
 /* toem_atoi.c */
-int interactive(info_t *);
-int is_delim(char, char *);
-int _isalpha(int);
-int _atoi(char *);
+int _interactive_(info_t *);
+int _is_delim_(char, char *);
+int _isalpha_(int);
+int _atoi_(char *);
 
 /* toem_errors1.c */
 int _erratoi(char *);

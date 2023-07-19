@@ -15,7 +15,7 @@ int _hsh_(info_t *info, char **av)
 	while (r != -1 && builtin_ret != -2)
 	{
 		clear_info(info);
-		if (interactive(info))
+		if (_interactive_(info))
 			_puts_("$ ");
 		__eputchar_(BUF_FLUSH);
 		r = get_input(info);
@@ -26,13 +26,13 @@ int _hsh_(info_t *info, char **av)
 			if (builtin_ret == -1)
 				_find_cmd_(info);
 		}
-		else if (interactive(info))
+		else if (_interactive_(info))
 			_putchar_('\n');
 		free_info(info, 0);
 	}
 	write_history(info);
 	free_info(info, 1);
-	if (!interactive(info) && info->status)
+	if (!_interactive_(info) && info->status)
 		exit(info->status);
 	if (builtin_ret == -2)
 	{
@@ -95,7 +95,7 @@ void _find_cmd_(info_t *info)
 		info->linecount_flag = 0;
 	}
 	for (i = 0, k = 0; info->arg[i]; i++)
-		if (!is_delim(info->arg[i], " \t\n"))
+		if (!_is_delim_(info->arg[i], " \t\n"))
 			k++;
 	if (!k)
 		return;
@@ -108,7 +108,7 @@ void _find_cmd_(info_t *info)
 	}
 	else
 	{
-		if ((interactive(info) || _getenv(info, "PATH=")
+		if ((_interactive_(info) || _getenv(info, "PATH=")
 			|| info->argv[0][0] == '/') && _is_cmd_(info, info->argv[0]))
 			_fork_cmd_(info);
 		else if (*(info->arg) != '\n')
