@@ -4,7 +4,7 @@
  * clear_info - initializes info_t struct
  * @info: struct address
  */
-void clear_info(info_t *info)
+void _clear_info_(info_t *info)
 {
 	info->arg = NULL;
 	info->argv = NULL;
@@ -13,11 +13,11 @@ void clear_info(info_t *info)
 }
 
 /**
- * set_info - initializes info_t struct
+ * _set_info_ - initializes info_t struct
  * @info: struct address
  * @av: argument vector
  */
-void set_info(info_t *info, char **av)
+void _set_info_(info_t *info, char **av)
 {
 	int i = 0;
 
@@ -39,17 +39,17 @@ void set_info(info_t *info, char **av)
 			;
 		info->argc = i;
 
-		replace_alias(info);
-		replace_vars(info);
+		replace_alias_(info);
+		replace_vars_(info);
 	}
 }
 
 /**
- * free_info - frees info_t struct fields
+ * _free_info_ - frees info_t struct fields
  * @info: struct address
  * @all: true if freeing all fields
  */
-void free_info(info_t *info, int all)
+void _free_info_(info_t *info, int all)
 {
 	ffree_(info->argv);
 	info->argv = NULL;
@@ -59,11 +59,11 @@ void free_info(info_t *info, int all)
 		if (!info->cmd_buf)
 			free(info->arg);
 		if (info->env)
-			free_list(&(info->env));
+			_free_list_(&(info->env));
 		if (info->history)
-			free_list(&(info->history));
+			_free_list_(&(info->history));
 		if (info->alias)
-			free_list(&(info->alias));
+			_free_list_(&(info->alias));
 		ffree_(info->environ);
 			info->environ = NULL;
 		_bfree_((void **)info->cmd_buf);

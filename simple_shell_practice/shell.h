@@ -167,69 +167,74 @@ int _isalpha_(int);
 int _atoi_(char *);
 
 /* toem_errors1.c */
-int _erratoi(char *);
-void print_error(info_t *, char *);
-int print_d(int, int);
-char *convert_number(long int, int, int);
-void remove_comments(char *);
+int _erratoi_(char *);
+void print_error_(info_t *, char *);
+int print_d_(int, int);
+char *convert_number_(long int, int, int);
+void remove_comments_(char *);
 
 /* toem_builtin.c */
-int _myexit(info_t *);
-int _mycd(info_t *);
-int _myhelp(info_t *);
+int _exit_(info_t *);
+int _cd_(info_t *);
+int _help_(info_t *);
 
 /* toem_builtin1.c */
-int _myhistory(info_t *);
-int _myalias(info_t *);
+int _history_(info_t *);
+int _alias_(info_t *);
+int _unset_alias_(info_t *info, char *str);
+int _set_alias_(info_t *info, char *str);
+int _print_alias_(list_t *node);
 
 /*toem_getline.c */
-ssize_t get_input(info_t *);
-int _getline(info_t *, char **, size_t *);
-void sigintHandler(int);
+ssize_t _get_input_(info_t *);
+int _getline_(info_t *, char **, size_t *);
+void _sigint_Handler_(int);
+ssize_t _input_buf_(info_t *info, char **buf, size_t *len);
+ssize_t _read_buf_(info_t *info, char *buf, size_t *i);
 
 /* toem_getinfo.c */
-void clear_info(info_t *);
-void set_info(info_t *, char **);
-void free_info(info_t *, int);
+void _clear_info_(info_t *);
+void _set_info_(info_t *, char **);
+void _free_info_(info_t *, int);
 
 /* toem_environ.c */
-char *_getenv(info_t *, const char *);
-int _myenv(info_t *);
-int _mysetenv(info_t *);
-int _myunsetenv(info_t *);
-int populate_env_list(info_t *);
+char *_getenv_(info_t *, const char *);
+int _myenv_(info_t *);
+int _mysetenv_(info_t *);
+int _myunsetenv_(info_t *);
+int populate_env_list_(info_t *);
 
 /* toem_getenv.c */
-char **get_environ(info_t *);
-int _unsetenv(info_t *, char *);
-int _setenv(info_t *, char *, char *);
+char **get_environ_(info_t *);
+int _unsetenv_(info_t *, char *);
+int _setenv_(info_t *, char *, char *);
 
 /* toem_history.c */
-char *get_history_file(info_t *info);
-int write_history(info_t *info);
-int read_history(info_t *info);
-int build_history_list(info_t *info, char *buf, int linecount);
-int renumber_history(info_t *info);
+char *_get_history_file_(info_t *info);
+int _write_history_(info_t *info);
+int _read_history_(info_t *info);
+int _build_history_list_(info_t *info, char *buf, int linecount);
+int _renumber_history_(info_t *info);
 
 /* toem_lists.c */
-list_t *add_node(list_t **, const char *, int);
-list_t *add_node_end(list_t **, const char *, int);
-size_t print_list_str(const list_t *);
-int delete_node_at_index(list_t **, unsigned int);
-void free_list(list_t **);
+list_t *_add_node_(list_t **, const char *, int);
+list_t *_add_node_end_(list_t **, const char *, int);
+size_t _print_list_str_(const list_t *);
+int _delete_node_at_index_(list_t **, unsigned int);
+void _free_list_(list_t **);
 
 /* toem_lists1.c */
-size_t list_len(const list_t *);
-char **list_to_strings(list_t *);
-size_t print_list(const list_t *);
-list_t *node_starts_with(list_t *, char *, char);
-ssize_t get_node_index(list_t *, list_t *);
+size_t _list_len_(const list_t *);
+char **_list_to_strings_(list_t *);
+size_t _print_list_(const list_t *);
+list_t *_node_starts_with_(list_t *, char *, char);
+ssize_t _get_node_index_(list_t *, list_t *);
 
 /* toem_vars.c */
-int is_chain(info_t *, char *, size_t *);
-void check_chain(info_t *, char *, size_t *, size_t, size_t);
-int replace_alias(info_t *);
-int replace_vars(info_t *);
-int replace_string(char **, char *);
+int is_chain_(info_t *, char *, size_t *);
+void check_chain_(info_t *, char *, size_t *, size_t, size_t);
+int replace_alias_(info_t *);
+int replace_vars_(info_t *);
+int replace_string_(char **, char *);
 
 #endif
