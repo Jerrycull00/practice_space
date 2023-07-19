@@ -14,7 +14,7 @@ int _history_(info_t *info)
 }
 
 /**
- * unset_alias - sets alias to string
+ * _unset_alias_ - sets alias to string
  * @info: parameter struct
  * @str: the string alias
  *
