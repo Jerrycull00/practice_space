@@ -51,7 +51,7 @@ typedef struct liststr
 } list_t;
 
 /**
- *struct _passinfo - contains pseudo-arguements to pass into a function,
+ *struct _passinfo_ - contains pseudo-arguements to pass into a function,
  *		allowing uniform prototype for function pointer struct
  *@arg: a string generated from getline containing arguements
  *@argv: an array of strings generated from arg
@@ -72,7 +72,7 @@ typedef struct liststr
  *@readfd: the fd from which to read line input
  *@histcount: the history line number count
  */
-typedef struct _passinfo
+typedef struct _passinfo_
 {
 	char *arg;
 	char **argv;
@@ -100,11 +100,11 @@ typedef struct _passinfo
 	0, 0, 0}
 
 /**
- *struct _builtin - contains a builtin string and related function
+ *struct _builtin_ - contains a builtin string and related function
  *@type: the builtin command flag
  *@func: the function
  */
-typedef struct _builtin
+typedef struct _builtin_
 {
 	char *type;
 	int (*func)(info_t *);
